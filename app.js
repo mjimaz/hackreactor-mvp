@@ -1,6 +1,6 @@
 var app = angular.module('tvshows', []);
 
-app.controller('MoviesController', function($scope, $http) {
+app.factory('IMDBapi', function($http) {
 
 	/*
 
@@ -10,16 +10,29 @@ app.controller('MoviesController', function($scope, $http) {
 	http://api.themoviedb.org/3/search/tv?api_key=API_KEY&query=game
 	
 	*/
-	$scope.getMovie = function() {
-		console.log('running getmovie');
-	return $http({
-		method: 'GET',
-    url: 'http://api.themoviedb.org/3/search/tv?api_key=8353f37b04124bdd138f12db75c775dd&query=the walking dead',
-	 })
-   .then(function (resp) {
-   	console.log('The data:', resp.data)
-     return resp.data;
+  var searchTVShow = function( tvshow ) {
+    return $http({
+      method: 'GET',
+      url: 'http://api.themoviedb.org/3/search/tv?api_key=8353f37b04124bdd138f12db75c775dd&query='+tvshow,
+    })
+    .then(function (resp) {
+      return resp.data;
+    });
+  };
+
+  return {
+    searchTVShow: searchTVShow,
+  }; 
+
+});  // end of factory IMDBapi
+
+app.controller('TVShowsController', function($scope, IMDBapi) {
+
+	$scope.tvshows;
+
+  $scope.getTVShow = function( tvshow ) {
+    IMDBapi.searchTVShow( 'the walking dead' )
+    .then(function (tvshows){
     });
   }
-
-});
+});  // end of controller TVShowsController
