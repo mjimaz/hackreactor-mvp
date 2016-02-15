@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html ng-app='tvshows'>
+  <head>
+  	<link rel='stylesheet' type='text/css' href='bootstrap.min.css' />
+  </head>
+  <body>
+  	<script type='text/javascript' src='angular.min.js'></script>
+  	<script type="text/javascript" src='app.js'></script>
+
+  	<div ng-controller="MoviesController">
+  		{{ movies }}
+  	
+  	<button type='submit' value='submit' ng-click='getMovie()'></button>
+  	</div>
+  </body>
+</html>
