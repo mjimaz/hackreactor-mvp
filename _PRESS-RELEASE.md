@@ -18,27 +18,45 @@ Once the project moves into development, the press release can be used as a touc
  
 ## Heading ##
   > Name the product in a way the reader (i.e. your target customers) will understand.
+ 
+  To Watch
 
 ## Sub-Heading ##
   > Describe who the market for the product is and what benefit they get. One sentence only underneath the title.
 
+  Keep track of the next episode to watch on your favorite TV shows!
+
 ## Summary ##
   > Give a summary of the product and the benefit. Assume the reader will not read anything else so make this paragraph good.
+
+  With so many TV shows it is hard to keep track of which episode you are at, especially if you watch your shows interchangeably. You can add the TV shows your watching and update the next episode to watch. 
 
 ## Problem ##
   > Describe the problem your product solves.
 
+  Going through few episodes trying to remember where you stopped last time you watch the TV show.
+
 ## Solution ##
   > Describe how your product elegantly solves the problem.
+
+  Saves the TV shows and the next episode to watch and in what season.
 
 ## Quote from You ##
   > A quote from a spokesperson in your company.
 
+  One less thing to keep track of!
+
 ## How to Get Started ##
   > Describe how easy it is to get started.
+
+  Add the TV show to your currently watching shows. Update the season and episode to watch next.
 
 ## Customer Quote ##
   > Provide a quote from a hypothetical customer that describes how they experienced the benefit.
 
+  With so many TV shows that I try to watch sporadically, this product takes away the frustration of trying to rememeber where I last stopped.
+
 ## Closing and Call to Action ##
   > Wrap it up and give pointers where the reader should go next.
+
+  Go to our website to sign up and start TV show tracking!
