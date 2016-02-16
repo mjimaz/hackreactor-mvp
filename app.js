@@ -82,6 +82,10 @@ app.controller('TVShowsController', function($scope, IMDBapi) {
 
 app.controller('WatchingListController', function( $scope, IMDBapi ) {
   $scope.watchingList = IMDBapi.getCurrentTVShows();
+
+  $scope.updateTVshow = function(index, currentSeason, currentEpisode ) {
+  	console.log('index:', index, ', currentSeason:', currentSeason, 'currentSeason:',  currentEpisode);
+  }
 });  // end of controller WatchingListController
 
 app.controller('TabController', function( $scope ) {

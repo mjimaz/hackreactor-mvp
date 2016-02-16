@@ -34,11 +34,25 @@
         </div>
         <div ng-show="isSet(2)" ng-controller="WatchingListController">
           <h4>Currently Watching</h4>
-          <blockquote>grid images ...</blockquote>
           <ul class='list-group'>
-            <span href="#" ng-repeat = 'tvshow in watchingList' class="list-group-item">
+            <span href="#" ng-repeat = 'tvshow in watchingList track by $index' class="list-group-item">
               <h4 class="list-group-item-heading">{{ tvshow.name }}</h4>
-              <p class="list-group-item-text">{{ tvshow.seasons }}</p>
+              <!--<form name="currentlyWatching">
+                <label for="season"> Season: </label>
+                <select name="season" id="season" ng-model="tvshow.seasons" ng-change='getEpisodes(3)'>
+                  <option ng-repeat="season in tvshow.seasons" value="{{season.season_number}}" ng-show='{{season.season_number}}'>{{season.season_number}}</option>
+                </select>
+              </form>-->
+              <div>Season:
+              <input class='text' type='text' name='currentSeason' ng-model='tvshow.currentSeason' required/>
+              </div>
+
+              <div>Episode:
+                <input class='text' type='text' name='currentEpisode' ng-model='tvshow.currentEpisode' required/>
+              </div>
+
+            <input type='submit' value='Update' ng-click='updateTVshow($index, tvshow.currentSeason, tvshow.currentEpisode )'/>
+
             </span>
           </ul>
         </div>
