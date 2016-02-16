@@ -67,6 +67,7 @@ app.controller('TVShowsController', function($scope, IMDBapi) {
 });  // end of controller TVShowsController
 
 app.controller('WatchingListController', function( $scope, IMDBapi ) {
+
 });  // end of controller WatchingListController
 
 app.controller('TabController', function( $scope ) {
