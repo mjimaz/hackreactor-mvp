@@ -20,7 +20,7 @@
   		<div ng-show="isSet(1)" ng-controller="TVShowsController">
           <h4>Search TV Shows</h4>
           <form name='searchTVShowsName' novalidate >
-            <input class='text' type='text' name='tvshowname' ng-model='tvshowname' required/>
+            <input class='text' type='text' name='tvshowname' ng-model='tvshowname'  placeholder='search TV show' required/>
             <input type='submit' value='Search' ng-click='getTVShowsListByName(tvshowname)' ng-disabled="searchTVShowsName.$invalid"/>
           </form>
           <ul class='list-group'>
@@ -32,9 +32,15 @@
             </a>
           </ul>
         </div>
-        <div ng-show="isSet(2)">
+        <div ng-show="isSet(2)" ng-controller="WatchingListController">
           <h4>Currently Watching</h4>
           <blockquote>grid images ...</blockquote>
+          <ul class='list-group'>
+            <span href="#" ng-repeat = 'tvshow in watchingList' class="list-group-item">
+              <h4 class="list-group-item-heading">{{ tvshow.name }}</h4>
+              <p class="list-group-item-text">{{ tvshow.seasons }}</p>
+            </span>
+          </ul>
         </div>
   	</section>
   	<section>

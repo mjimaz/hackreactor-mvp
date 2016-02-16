@@ -35,13 +35,22 @@ app.factory('IMDBapi', function($http) {
   };
 
   var addToCurrentTVShows = function( tvshow ) {
-	  currentTVShows.push(tvshows);
+  	var newTVShow = {};
+  	newTVShow.id = tvshow.id;
+  	newTVShow.name = tvshow.name;
+  	newTVShow.seasons = tvshow.seasons;
+	  currentTVShows.push(newTVShow);
+  };
+
+  var getCurrentTVShows = function( ) {
+	  return currentTVShows;
   };
 
   return {
     searchTVShows: searchTVShows,
     getTVShowInfo: getTVShowInfo,
-    addToCurrentTVShows: addToCurrentTVShows
+    addToCurrentTVShows: addToCurrentTVShows,
+    getCurrentTVShows: getCurrentTVShows
   }; 
 
 });  // end of factory IMDBapi
@@ -67,7 +76,7 @@ app.controller('TVShowsController', function($scope, IMDBapi) {
 });  // end of controller TVShowsController
 
 app.controller('WatchingListController', function( $scope, IMDBapi ) {
-
+  $scope.watchingList = IMDBapi.getCurrentTVShows();
 });  // end of controller WatchingListController
 
 app.controller('TabController', function( $scope ) {
