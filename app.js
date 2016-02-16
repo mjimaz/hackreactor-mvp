@@ -2,6 +2,8 @@ var app = angular.module('tvshows', []);
 
 app.factory('IMDBapi', function($http) {
 
+  var currentTVShows = [];
+
 	/*
 
 	https://api.themoviedb.org/3/movie/550?api_key=8353f37b04124bdd138f12db75c775dd
@@ -29,19 +31,22 @@ app.factory('IMDBapi', function($http) {
     .then(function ( resp ) {
       return resp.data;
     });
-  }
-    //http://api.themoviedb.org/3/tv/id
+
+  };
+
+  var addToCurrentTVShows = function( tvshow ) {
+	  currentTVShows.push(tvshows);
+  };
 
   return {
     searchTVShows: searchTVShows,
-    getTVShowInfo: getTVShowInfo
+    getTVShowInfo: getTVShowInfo,
+    addToCurrentTVShows: addToCurrentTVShows
   }; 
 
 });  // end of factory IMDBapi
 
 app.controller('TVShowsController', function($scope, IMDBapi) {
-
-	console.log('TVShowsController');
 
 	$scope.tvshowslist = [];
 
@@ -49,18 +54,20 @@ app.controller('TVShowsController', function($scope, IMDBapi) {
     IMDBapi.searchTVShows( tvshow )
     .then(function (tvshows){
     	$scope.tvshowslist = tvshows.results;
-    	console.log('tv shows:', $scope.tvshowslist );
     });
   };
 
   $scope.getTVShowDetails = function( tvshowid ) {
     IMDBapi.getTVShowInfo( tvshowid )
     .then(function (tvshowdetails){
-    	console.log('tvshowdetails:', tvshowdetails);
+    	IMDBapi.addToCurrentTVShows( tvshowdetails );
     });
   };
 
 });  // end of controller TVShowsController
+
+app.controller('WatchingListController', function( $scope, IMDBapi ) {
+});  // end of controller WatchingListController
 
 app.controller('TabController', function( $scope ) {
 	$scope.tab = 1;
