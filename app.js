@@ -14,9 +14,12 @@ app.factory('IMDBapi', function($http) {
 	*/
 
   var searchTVShows = function( tvshow ) {
+
+  	var searchkey = tvshow.split(' ').join('+'); 
+
     return $http({
       method: 'GET',
-      url: 'http://api.themoviedb.org/3/search/tv?api_key=8353f37b04124bdd138f12db75c775dd&query='+tvshow
+      url: 'http://api.themoviedb.org/3/search/tv?api_key=8353f37b04124bdd138f12db75c775dd&query='+searchkey
     })
     .then(function ( resp ) {
       return resp.data;
