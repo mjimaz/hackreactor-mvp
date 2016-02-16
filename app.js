@@ -42,6 +42,8 @@ app.factory('IMDBapi', function($http) {
   	newTVShow.id = tvshow.id;
   	newTVShow.name = tvshow.name;
   	newTVShow.seasons = tvshow.seasons;
+  	newTVShow.currentSeason = 0;
+  	newTVShow.currentEpisode = 0;
 	  currentTVShows.push(newTVShow);
   };
 
