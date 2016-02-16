@@ -10,6 +10,7 @@ app.factory('IMDBapi', function($http) {
 	http://api.themoviedb.org/3/search/tv?api_key=API_KEY&query=game
 	
 	*/
+
   var searchTVShows = function( tvshow ) {
     return $http({
       method: 'GET',
@@ -40,12 +41,15 @@ app.factory('IMDBapi', function($http) {
 
 app.controller('TVShowsController', function($scope, IMDBapi) {
 
-  $scope.getTVShowsListByName = function( tvshow ) {
-    IMDBapi.searchTVShows( 'the walking dead' )
-    .then(function (tvshows){
-    	console.log(tvshows.results[0].id);
+	console.log('TVShowsController');
 
-    	$scope.getTVShowDetails(tvshows.results[0].id);
+	$scope.tvshowslist = [];
+
+  $scope.getTVShowsListByName = function( tvshow ) {
+    IMDBapi.searchTVShows( tvshow )
+    .then(function (tvshows){
+    	$scope.tvshowslist = tvshows.results;
+    	console.log('tv shows:', $scope.tvshowslist );
     });
   };
 
@@ -59,7 +63,7 @@ app.controller('TVShowsController', function($scope, IMDBapi) {
 });  // end of controller TVShowsController
 
 app.controller('TabController', function( $scope ) {
-	$scope.tab = 0;
+	$scope.tab = 1;
 
 	$scope.setTab = function ( tab ) {
 		$scope.tab = tab;
