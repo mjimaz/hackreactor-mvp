@@ -43,15 +43,14 @@
                   <option ng-repeat="season in tvshow.seasons" value="{{season.season_number}}" ng-show='{{season.season_number}}'>{{season.season_number}}</option>
                 </select>
               </form>-->
-              <div>Season:
-              <input class='text' type='text' name='currentSeason' ng-model='tvshow.currentSeason' required/>
-              </div>
+              <div class="list-group-item-text">Season:</div>
+              <input class="form-control"  type='text' name='currentSeason' ng-model='tvshow.currentSeason' required/>
+              
 
-              <div>Episode:
-                <input class='text' type='text' name='currentEpisode' ng-model='tvshow.currentEpisode' required/>
-              </div>
-
-            <input type='submit' value='Update' ng-click='updateTVshow($index, tvshow.currentSeason, tvshow.currentEpisode )'/>
+              <div class="list-group-item-text">Episode:</div>
+                <input class="form-control" type='text' name='currentEpisode' ng-model='tvshow.currentEpisode' required/>
+              
+            <input class="btn btn-primary btn-sm" type='submit' value='Update' ng-click='updateTVshow($index, tvshow.currentSeason, tvshow.currentEpisode )'/>
 
             </span>
           </ul>
