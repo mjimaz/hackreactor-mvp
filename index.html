@@ -37,16 +37,9 @@
           <ul class='list-group'>
             <span href="#" ng-repeat = 'tvshow in watchingList track by $index' class="list-group-item">
               <h4 class="list-group-item-heading">{{ tvshow.name }}</h4>
-              <!--<form name="currentlyWatching">
-                <label for="season"> Season: </label>
-                <select name="season" id="season" ng-model="tvshow.seasons" ng-change='getEpisodes(3)'>
-                  <option ng-repeat="season in tvshow.seasons" value="{{season.season_number}}" ng-show='{{season.season_number}}'>{{season.season_number}}</option>
-                </select>
-              </form>-->
               <div class="list-group-item-text">Season:</div>
-              <input class="form-control"  type='text' name='currentSeason' ng-model='tvshow.currentSeason' required/>
-              
-
+              <input class="form-control" type='text' name='currentSeason' ng-model='tvshow.currentSeason' required/>
+ 
               <div class="list-group-item-text">Episode:</div>
                 <input class="form-control" type='text' name='currentEpisode' ng-model='tvshow.currentEpisode' required/>
               
@@ -55,11 +48,6 @@
             </span>
           </ul>
         </div>
-  	</section>
-  	<section>
-	 
-     	<!--	<button type='submit' value='submit' ng-click='getTVShowsListByName()'>The Walking Dead</button> -->
-	 
   	</section>
   </body>
 </html>
