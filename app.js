@@ -4,15 +4,6 @@ app.factory('IMDBapi', function($http) {
 
   var currentTVShows = [];
 
-	/*
-
-	https://api.themoviedb.org/3/movie/550?api_key=8353f37b04124bdd138f12db75c775dd
-
-	search for tv shows
-	http://api.themoviedb.org/3/search/tv?api_key=API_KEY&query=game
-	
-	*/
-
   var searchTVShows = function( tvshow ) {
 
   	var searchkey = tvshow.split(' ').join('+'); 
@@ -51,11 +42,17 @@ app.factory('IMDBapi', function($http) {
 	  return currentTVShows;
   };
 
+  var updateTVShowInfo = function(index, currentSeason, currentEpisode) {
+    currentTVShows[index].currentSeason = currentSeason;
+    currentTVShows[index].currentEpisode = currentEpisode;
+  };
+
   return {
     searchTVShows: searchTVShows,
     getTVShowInfo: getTVShowInfo,
     addToCurrentTVShows: addToCurrentTVShows,
-    getCurrentTVShows: getCurrentTVShows
+    getCurrentTVShows: getCurrentTVShows,
+    updateTVShowInfo: updateTVShowInfo
   }; 
 
 });  // end of factory IMDBapi
@@ -84,7 +81,7 @@ app.controller('WatchingListController', function( $scope, IMDBapi ) {
   $scope.watchingList = IMDBapi.getCurrentTVShows();
 
   $scope.updateTVshow = function(index, currentSeason, currentEpisode ) {
-  	console.log('index:', index, ', currentSeason:', currentSeason, 'currentSeason:',  currentEpisode);
+  	IMDBapi.updateTVShowInfo( index, currentSeason, currentEpisode );
   }
 });  // end of controller WatchingListController
 
