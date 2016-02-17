@@ -23,11 +23,15 @@
             <input class='text' type='text' name='tvshowname' ng-model='tvshowname'  placeholder='search TV show' required/>
             <input type='submit' value='Search' ng-click='getTVShowsListByName(tvshowname);tvshowname=""' ng-disabled="searchTVShowsName.$invalid"/>
           </form>
+          <br>
           <ul class='list-group'>
             <a href="#" ng-repeat = 'tvshow in tvshowslist' class="list-group-item">
           	  <img class="list-group-item" ng-src='http://image.tmdb.org/t/p/w92{{tvshow["poster_path"]}}'/>
+          	  <br>
               <h4 class="list-group-item-heading">{{ tvshow.name }}</h4>
+              <br>
               <p class="list-group-item-text">{{ tvshow.overview }}</p>
+              <br>
           	  <input type='submit' value='Select' ng-click='getTVShowDetails(tvshow["id"])'/>
             </a>
           </ul>
