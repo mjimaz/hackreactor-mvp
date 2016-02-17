@@ -97,3 +97,24 @@ app.controller('TabController', function( $scope ) {
 	};
 
 }); // end of controller TabController
+
+app.filter('episodes', function(){
+
+	return function(input) {
+
+		var currentSeason = Number(input.currentSeason);
+		var seasons = input.seasons;
+
+    var out = [];
+    if(input.seasons[currentSeason]){
+
+      var episodes = input.seasons[currentSeason].episode_count;
+      for(var i = 1 ; i <= episodes ; i++){
+    	  out.push(i);
+      }
+    }
+        
+    return out;
+  }
+
+});
