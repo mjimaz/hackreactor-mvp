@@ -26,6 +26,8 @@ app.factory('IMDBapi', function($http) {
       return resp.data;
     });
 
+
+
   };
 
   var addToCurrentTVShows = function( tvshow ) {
@@ -47,12 +49,13 @@ app.factory('IMDBapi', function($http) {
     currentTVShows[index].currentEpisode = currentEpisode;
   };
 
+
   return {
     searchTVShows: searchTVShows,
     getTVShowInfo: getTVShowInfo,
     addToCurrentTVShows: addToCurrentTVShows,
     getCurrentTVShows: getCurrentTVShows,
-    updateTVShowInfo: updateTVShowInfo
+    updateTVShowInfo: updateTVShowInfo,
   }; 
 
 });  // end of factory IMDBapi
@@ -106,7 +109,7 @@ app.filter('episodes', function(){
 		var seasons = input.seasons;
 
     var out = [];
-    if(input.seasons[currentSeason]){
+    if(input.seasons[currentSeason] && currentSeason){
 
       var episodes = input.seasons[currentSeason].episode_count;
       for(var i = 1 ; i <= episodes ; i++){
