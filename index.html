@@ -21,7 +21,7 @@
           <h4>Search TV Shows</h4>
           <form name='searchTVShowsName' novalidate >
             <input class='text' type='text' name='tvshowname' ng-model='tvshowname'  placeholder='search TV show' required/>
-            <input type='submit' value='Search' ng-click='getTVShowsListByName(tvshowname)' ng-disabled="searchTVShowsName.$invalid"/>
+            <input type='submit' value='Search' ng-click='getTVShowsListByName(tvshowname);tvshowname=""' ng-disabled="searchTVShowsName.$invalid"/>
           </form>
           <ul class='list-group'>
             <a href="#" ng-repeat = 'tvshow in tvshowslist' class="list-group-item">
@@ -41,12 +41,12 @@
               <select name='currentSeason' ng-model='tvshow.currentSeason'>
                 <option ng-repeat = 'season in tvshow.seasons' ng-show='season.season_number'> {{season.season_number}} </option>
               </select>
- 
+              <br>
               <div class="list-group-item-text">Episode:</div>
                 <select name='currentEpisode' ng-model='tvshow.currentEpisode'>
                 <option ng-repeat = 'episode in tvshow | episodes'>{{episode}} </option>
               </select>
-              
+              <br><br>
             <input class="btn btn-primary btn-sm" type='submit' value='Update' ng-click='updateTVshow($index, tvshow.currentSeason, tvshow.currentEpisode )'/>
 
             </span>
