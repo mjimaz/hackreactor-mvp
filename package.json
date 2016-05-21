@@ -1,0 +1,22 @@
+{
+  "name": "hackreactor-mvp",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server/server.js",
+  "scripts": {
+    "babel-node": "./node_modules/.bin/babel-node",
+    "start": "./node_modules/.bin/nodemon --exec npm run babel-node server/server.js"
+  },
+  "author": "Maryam Aljimaz",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.15.1",
+    "express": "^4.13.4",
+    "kerberos": "0.0.18",
+    "mongoose": "^4.4.2"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.9.0",
+    "babel-preset-es2015": "^6.9.0"
+  }
+}
