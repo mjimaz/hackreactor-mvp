@@ -19,7 +19,7 @@ app.factory('IMDBapi', function($http) {
   var getTVShowInfo = function( tvshowid ) {
   	return $http({
       method: 'GET',
-      url: 'http://api.themoviedb.org/3/tv/'+tvshowid+'?api_key=8353f37b04124bdd138f12db75c775dd'
+      url: `http://localhost:8000/tvshow/${tvshowid}`
     })
     .then( resp => resp.data)
     .catch(error => console.error(error));

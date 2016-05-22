@@ -29,4 +29,16 @@ export default (app) => {
 
   });
 
+  app.get('/tvshow/:id', (req, res) => {
+    const tvshowid = req.params['id'];
+    const options = {
+      uri: `http://api.themoviedb.org/3/tv/${tvshowid}?api_key=${IMDbKey}`,
+      json: true
+    }
+
+    request(options)
+    .then( response => res.status(200).send(response))
+    .catch( error => res.status(400).send(`Error in retrieving tv show! ${error}`));
+
+  });
 };
