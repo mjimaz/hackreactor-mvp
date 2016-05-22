@@ -1,4 +1,4 @@
-var app = angular.module('tvshows', []);
+const app = angular.module('tvshows', []);
 
 app.factory('IMDBapi', function($http) {
 
@@ -6,11 +6,10 @@ app.factory('IMDBapi', function($http) {
 
   var searchTVShows = function( tvshow ) {
 
-  	var searchkey = tvshow.split(' ').join('+'); 
-
+  	var searchkey = tvshow.split(' ').join('+');
     return $http({
       method: 'GET',
-      url: 'http://api.themoviedb.org/3/search/tv?api_key=8353f37b04124bdd138f12db75c775dd&query='+searchkey
+      url: `http://localhost:8000/search?query=${searchkey}`
     })
     .then(function ( resp ) {
       return resp.data;
@@ -22,12 +21,8 @@ app.factory('IMDBapi', function($http) {
       method: 'GET',
       url: 'http://api.themoviedb.org/3/tv/'+tvshowid+'?api_key=8353f37b04124bdd138f12db75c775dd'
     })
-    .then(function ( resp ) {
-      return resp.data;
-    });
-
-
-
+    .then( resp => resp.data)
+    .catch(error => console.error(error));
   };
 
   var addToCurrentTVShows = function( tvshow ) {
@@ -56,7 +51,7 @@ app.factory('IMDBapi', function($http) {
     addToCurrentTVShows: addToCurrentTVShows,
     getCurrentTVShows: getCurrentTVShows,
     updateTVShowInfo: updateTVShowInfo,
-  }; 
+  };
 
 });  // end of factory IMDBapi
 
@@ -116,7 +111,7 @@ app.filter('episodes', function(){
     	  out.push(i);
       }
     }
-        
+
     return out;
   }
 
